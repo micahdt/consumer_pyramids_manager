@@ -1,0 +1,68 @@
+[project]
+name = "consumer_pyramids_manager"
+version = "0.0.1"
+authors = [
+  { name="Micah Thomas", email="micahdthomas@gmail.com" },
+]
+description = "Package for sampling, building, and managing CMIE Consumer Pyramids"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.10.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/jlgarci/consumerpyramids_india"
+"Bug Tracker" = "https://github.com/jlgarci/consumerpyramids_india"
+
+
+[project.scripts]
+consumer_pyramids_manager= 'consumer_pyramids_manager.foreman:foreman'
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+[build-system]
+requires = [
+   "setuptools>=61.0",
+   "alive_progress",
+   "attr==0.3.2",
+   "attrs==21.4.0",
+   "ConfigParser==5.2.0",
+   "cryptography==36.0.2",
+   "Cython==0.29.32",
+   "dl==0.1.0",
+   "docutils==0.19",
+   "halo==0.0.31",
+   "HTMLParser==0.0.2",
+   "inquirer==2.10.0",
+   "ipython==8.4.0",
+   "ipywidgets==7.7.0",
+   "Jinja2==3.1.1",
+   "keyring==23.7.0",
+   "lockfile==0.12.2",
+   "numpy==1.23.1",
+   "openpyxl",
+   "pandas",
+   "Pillow==9.2.0",
+   "protobuf==4.21.4",
+   "pyfiglet",
+   "pyOpenSSL==22.0.0",
+   "python_dateutil==2.8.2",
+   "railroad==0.5.0",
+   "simple_term_menu==1.5.0",
+   "Sphinx==5.1.1",
+   "toml==0.10.2",
+   "tornado==6.1",
+   "trove_classifiers==2022.7.22",
+   "truststore==0.4.0",
+   "setuptools-scm>=6.4.2",
+   "wheel"
+]
+build-backend = "setuptools.build_meta"
