@@ -1,6 +1,6 @@
 [project]
 name = "consumer_pyramids_manager"
-version = "0.0.1"
+version = "1.0.0"
 authors = [
   { name="Micah Thomas", email="micahdthomas@gmail.com" },
 ]
@@ -16,8 +16,7 @@ classifiers = [
 
 
 [project.urls]
-"Homepage" = "https://github.com/jlgarci/consumerpyramids_india"
-"Bug Tracker" = "https://github.com/jlgarci/consumerpyramids_india"
+"Homepage" = "https://github.com/micah7-clemson/consumer_pyramids_manager"
 
 
 [project.scripts]
