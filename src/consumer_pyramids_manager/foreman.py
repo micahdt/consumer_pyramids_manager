@@ -47,10 +47,6 @@ pyramid_builder_banner = pyfiglet.figlet_format("PYRAMID BUILDER\n", justify = "
 
 global config_file
 config_file = "config.txt" if os.name == 'nt' else ".config.txt"
-global data_directory
-data_directory = config.configure()[0]
-global output_directory
-output_directory = config.configure()[1]
 
 def clear_prompt():
     if os.name == 'nt':
@@ -70,7 +66,7 @@ def init():
         else:
             with open(".config.txt", "w") as f:
                 f.write(json.dumps(configuration))
-        input(f"        {bcolors.WARNING}Config file not found!{bcolors.END} Press enter to begin initialization.")
+        input(f"      {bcolors.WARNING}Config file not found!{bcolors.END} Press enter to begin initialization.")
         option1()
         return
     else:

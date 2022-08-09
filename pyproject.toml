@@ -13,22 +13,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-
-
-[project.urls]
-"Homepage" = "https://github.com/micah7-clemson/consumer_pyramids_manager"
-
-
-[project.scripts]
-consumer_pyramids_manager= 'consumer_pyramids_manager.foreman:foreman'
-
-
-[tool.setuptools.packages.find]
-where = ["src"]
-
-
-[build-system]
-requires = [
+dependencies = [
    "setuptools>=61.0",
    "alive_progress",
    "attr==0.3.2",
@@ -64,4 +49,20 @@ requires = [
    "setuptools-scm>=6.4.2",
    "wheel"
 ]
+
+
+[project.urls]
+"Homepage" = "https://github.com/micah7-clemson/consumer_pyramids_manager"
+
+
+[project.scripts]
+consumer_pyramids_manager= 'consumer_pyramids_manager.foreman:foreman'
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+[build-system]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"

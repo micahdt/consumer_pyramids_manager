@@ -147,3 +147,4 @@ def variables_capture():
             sys.stdout.write("\033[F")
     os.chdir(str(Path(str(data_directory) + "/codebook/")))
     shutil.copyfile("vars_all.xlsx", "vars_selected.xlsx")
+    print("Variables Capture: Done!")

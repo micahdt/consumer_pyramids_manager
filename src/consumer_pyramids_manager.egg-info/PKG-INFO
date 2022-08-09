@@ -1,3 +1,16 @@
+Metadata-Version: 2.1
+Name: consumer-pyramids-manager
+Version: 1.0.0
+Summary: Package for sampling, building, and managing CMIE Consumer Pyramids
+Author-email: Micah Thomas <micahdthomas@gmail.com>
+Project-URL: Homepage, https://github.com/micah7-clemson/consumer_pyramids_manager
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
 # Consumer Pyramids Manager
 This package is designed to allow for sampling, building, and managing the CMIE Consumer Pyramids Data. The program runs in a command line interface with options for updating the codebook when new data is added, selecting variables of interest, and building/sampling data as needed.
 <br/><br/>
