@@ -17,11 +17,11 @@ This package is designed to allow for sampling, building, and managing the CMIE 
     ```bash
     python3 get-pip.py
     ```
-- Install the consumer_pyramids_manager package by navigating to the root of the repo and running the following command:
+- Install the consumer_pyramids_manager.<br/> From the root of the repo, enter the following command:
     ```bash
     pip3 install dist/*.tar.gz
     ```
-- The program is now initialized by entering the  ```consumer_pyramids_manager``` command in terminal.
+- The program can now be called by entering the  ```consumer_pyramids_manager``` command in terminal.
 
 - **NOTE:** Initialization must be run upon first installation.
 <br/><br/>
