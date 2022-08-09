@@ -7,13 +7,17 @@ This package is designed to allow for sampling, building, and managing the CMIE 
 - (micahdthomas@gmail.com)
 <br/><br/>
 
-## MacOS Installation Instructions:
+## Installation Instructions (MacOS and Windows):
 - Install Python 3 (built on 3.10.6)
-- Install pip3:
+- Download pip:
     ```bash
-    sudo apt install python3-pip 
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     ```
-- Navigate to the root of the github repo and enter the following command to install the package:
+- Install pip:
+    ```bash
+    python3 get-pip.py
+    ```
+- Install the consumer_pyramids_manager package by navigating to the root of the repo and running the following command:
     ```bash
     pip3 install dist/*.tar.gz
     ```
@@ -22,23 +26,8 @@ This package is designed to allow for sampling, building, and managing the CMIE 
 - **NOTE:** Initialization must be run upon first installation.
 <br/><br/>
 
-## Windows Installation Instructions:
-- Install Python 3 (built on 3.10.6)
-- Install pip3: <br />Download the latest version of get-pip.py from
-    ```bash
-    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    ```
-    CD into the directory where get-pip.py was downloaded and
-    enter the following command to install pip3 and its dependencies:
-    ```bash
-    python3 get-pip.py
-    ```
-    You can verify that pip3 is installed by navigating to the default 
-    pip3 installation directory, eg. C:\python38\scripts\, and enter:
-    ```bash
-    pip3 --version
-    ```
-- Add pip3 to system variables:
+## Additional Windows Installation Instructions:
+- It is possible that pip will not automatically populate in the system variables, to correct this follow these steps:
     - Open the Control Panel and navigate to System.
     - Click on Advanced system settings in the upper left panel.
     - Click on Environment Variables.
@@ -46,13 +35,6 @@ This package is designed to allow for sampling, building, and managing the CMIE 
     - Click New, and add the directory where pip3 is installed, e.g. C:\Python38\Scripts , and select OK. 
     <br/><br/>
 
-- Navigate to the root of the github repo and enter the command below to install the package:
-    ```bash
-    pip3 install dist/*.tar.gz
-    ```
-- The program is now initialized by entering the  ```consumer_pyramids_manager``` command in terminal.
-- **NOTE:** Initialization must be run upon first installation.
-<br/><br/>
 
 
 
