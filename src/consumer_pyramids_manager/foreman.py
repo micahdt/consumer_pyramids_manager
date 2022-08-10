@@ -306,17 +306,17 @@ def option5():
     to faciliate sampling, building, and managing the CMIE Consumer
     Pyramids Data. There are four menus:\n
       1. \033[1;4mInitializer\033[0m: Allows for setting of the data and output
-        directories. In general: the data directory should point to 
-        the root of the shared consumerpyramids_india data directory; 
-        the output directory should point to the dataready folder 
-        contained in the consumerpyramids_india data directory. 
+         directories. In general: the data directory should point to 
+         the root of the shared consumerpyramids_india data directory; 
+         the output directory should point to the dataready folder 
+         contained in the consumerpyramids_india data directory. 
       2. \033[1;4mCodebook Updater\033[0m: Updates the variable list for selection, 
-        captures IDs for sampling, and creates unique individual IDs from
-        HH_ID and MEM_ID. Typically only run when new pyramids are added
-        to the shared data directory.
+         captures IDs for sampling, and creates unique individual IDs from
+         HH_ID and MEM_ID. Typically only run when new pyramids are added
+         to the shared data directory.
       3. \033[1;4mVariable Selector\033[0m: Allows for selection on available variables.
       4. \033[1;4mPyramid Builder\033[0m: Allows for construction and sampling of the
-        available consumer pyramids.\n
+         available consumer pyramids.\n
     {bcolors.WARNING}NOTE:{bcolors.END} List of all variables saved to ./codebook/vars_all.xlsx 
     List of selected variables saved to ./codevook/vars_selected.xlsx
 
