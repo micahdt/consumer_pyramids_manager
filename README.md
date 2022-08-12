@@ -17,6 +17,10 @@ This package is designed to allow for sampling, building, and managing the CMIE 
     ```bash
     python3 get-pip.py
     ```
+- Manually install package dependencies (pip3 throws error if done within .tar.gz). From the root of the repo, enter the following command:
+    ```bash
+    cat requirements.txt | xargs pip install
+    ```
 - Install the consumer_pyramids_manager.<br/> From the root of the repo, enter the following command:
     ```bash
     pip3 install dist/*.tar.gz
@@ -26,7 +30,8 @@ This package is designed to allow for sampling, building, and managing the CMIE 
 - **NOTE:** Initialization must be run upon first installation.
 <br/><br/>
 
-## Additional Windows Installation Instructions:
+## Windows Installation Instructions Addendum:
+- Due to compatibility errors with some of the dependencies, all of the above instructions must be completed within Windows Subsystem for Linux (WSL2). Install according to your machine's instructions then follow the instructions as normal. 
 - It is possible that pip will not automatically populate in the system variables, to correct this follow these steps:
     - Open the Control Panel and navigate to System.
     - Click on Advanced system settings in the upper left panel.
@@ -35,7 +40,12 @@ This package is designed to allow for sampling, building, and managing the CMIE 
     - Click New, and add the directory where pip3 is installed, e.g. C:\Python38\Scripts , and select OK. 
     <br/><br/>
 
-
+## Alternate Installation:
+- In the event of dependency clash or failure to install, these instructions enable manual operation. Follow the installation instructions as laid out above, but skip the last step installing the consumer_pyramids_manager package. Instead, once the dependencies are installed, navigate to the src folder within the repo. From the root of the src folder, run the following command:
+    ```bash
+    python3 foreman.py
+    ```
+<br/>
 
 
 ## Program Menus:
