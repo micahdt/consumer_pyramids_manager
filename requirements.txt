@@ -27,5 +27,5 @@ Sphinx==5.1.1
 toml==0.10.2
 tornado==6.1
 trove_classifiers==2022.7.22
-truststore==0.4.0
+truststore
 openpyxl==3.0.10
