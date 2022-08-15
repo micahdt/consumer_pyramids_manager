@@ -282,7 +282,7 @@ def pyramid_builder():
         frame.to_csv(target_file_name, index=False)
 
         #Creating log text file that says the start date and time as well as the sampling characteristics.
-        text_file = open((Path(str(output_directory) + desired_file_name + "_parameters_" + ".txt")), "w")
+        text_file = open((Path(str(output_directory) + "_" + desired_file_name + "_parameters_" + ".txt")), "w")
         n = text_file.write("Data sampled on: " + str(init_start_day) + " at " + str(init_start_time) + "\nMonths sampled: " + str(desired_dates[0]) + " through " + str(desired_dates[1]) + "\nHouseholds sampled: " + str(desired_households) + "\nIndividuals sampled: " + str(desired_individuals) + "\nSeed: " + str(seed_set))
         text_file.close()
 

@@ -54,9 +54,9 @@ This package is designed to allow for sampling, building, and managing the CMIE 
     <br/><br/>
 
 ## Alternate Installation:
-- In the event of dependency clash or failure to install, these instructions enable manual operation. Follow the installation instructions as laid out above, but skip the last step installing the consumer_pyramids_manager package. Instead, once the dependencies are installed, navigate to the src folder within the repo. From the root of the src folder, run the following command:
+- In the event of dependency clash or failure to install, these instructions enable manual operation. Follow the installation instructions as laid out above, but skip the last step installing the consumer_pyramids_manager package. Instead, once the dependencies are installed, from the root of the src folder, run the following command:
     ```bash
-    python3 foreman.py
+    python3 src/foreman.py
     ```
 <br/>
 
