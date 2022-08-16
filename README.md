@@ -19,7 +19,7 @@ This package is designed to allow for sampling, building, and managing the CMIE 
     ```
 - Manually install package dependencies (pip3 throws error if done within .tar.gz). From the root of the repo, enter the following command:
     ```bash
-    cat requirements.txt | xargs pip install
+    pip3 install -r requirements.txt
     ```
 - Install the consumer_pyramids_manager.<br/> From the root of the repo, enter the following command:
     ```bash
