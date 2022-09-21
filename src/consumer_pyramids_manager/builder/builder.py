@@ -19,6 +19,7 @@ from consumer_pyramids_manager.configure.configure import bcolors
 import json
 from importlib import reload
 from inquirer.themes import GreenPassion
+import numpy as np
 
 global config_file
 config_file = config.config_file
@@ -27,6 +28,20 @@ config_file = config.config_file
 #                                          PYRAMID BUILDER
 # ============================================================================================================
 
+def pyramid_cleaner(target_file):
+    final_pyramid = pd.read_csv(target_file)
+    final_pyramid["HH_ID"].replace('', np.nan, inplace=True)
+    final_pyramid = final_pyramid[final_pyramid.HH_ID.notnull()]
+    final_pyramid["INDIV_ID"].replace('', np.nan, inplace=True)
+    final_pyramid = final_pyramid[final_pyramid.INDIV_ID.notnull()]
+    final_pyramid["MONTH"] = final_pyramid["MONTH"].astype('datetime64[ns]')
+    final_pyramid["MONTH"] = final_pyramid["MONTH"].astype(str).str[0:10]
+    final_pyramid["MONTH_SLOT"] = final_pyramid["MONTH_SLOT"].astype('datetime64[ns]')
+    final_pyramid["MONTH_SLOT"] = final_pyramid["MONTH_SLOT"].astype(str).str[0:10]
+    final_pyramid = final_pyramid.replace({"Data Not Available": None})
+    final_pyramid = final_pyramid.replace({-99: None})
+    final_pyramid = final_pyramid.replace({-100: None})
+    final_pyramid.to_csv(target_file)  
 
 def pyramid_builder():
     init_start = datetime.now()
@@ -265,10 +280,10 @@ def pyramid_builder():
         
         #Grabbing the sampled merged tempfiles
         joined_files = glob.glob(os.path.join(tempfiles, "*.csv"))
-        output_directory = Path(str(output_directory) + "/merged_" + init_start_day + "_" + init_start_time)
-        os.mkdir(output_directory)
+        chunk_output_directory = Path(str(output_directory) + "/" + desired_file_name + "_" + init_start_day + "_" + init_start_time)
+        os.mkdir(chunk_output_directory)
         #Declaring the output file name
-        target_file_name = Path(str(output_directory) +"_"+ desired_file_name + ".csv")
+        target_file_name = Path(str(chunk_output_directory) +"/"+ desired_file_name + ".csv")
 
         print("Merging final panel...")
         #Merging all of the tempfiles
@@ -282,7 +297,7 @@ def pyramid_builder():
         frame.to_csv(target_file_name, index=False)
 
         #Creating log text file that says the start date and time as well as the sampling characteristics.
-        text_file = open((Path(str(output_directory) + "_" + desired_file_name + "_parameters_" + ".txt")), "w")
+        text_file = open((Path(str(chunk_output_directory) + "/" + desired_file_name + "_parameters" + ".txt")), "w")
         n = text_file.write("Data sampled on: " + str(init_start_day) + " at " + str(init_start_time) + "\nMonths sampled: " + str(desired_dates[0]) + " through " + str(desired_dates[1]) + "\nHouseholds sampled: " + str(desired_households) + "\nIndividuals sampled: " + str(desired_individuals) + "\nSeed: " + str(seed_set))
         text_file.close()
 
@@ -300,17 +315,25 @@ def pyramid_builder():
             part_index = 1
             with alive_bar(len(["M"]*(int(float(desired_chunk_lines)/float(number_of_lines))))) as bar:
                 for i,chunk in enumerate(pd.read_csv(target_file_name, chunksize=desired_chunk_lines,low_memory=False)):
-                    chunk.to_csv(Path(str(output_directory) +"/"+ desired_file_name+"_part_"+str(part_index)+".csv"), index=False)
+                    chunk.to_csv(Path(str(chunk_output_directory) +"/"+ desired_file_name+"_part_"+str(part_index)+".csv"), index=False)
                     part_index = part_index+1
                 bar()
-            print("Chunks saved to:\n" + str(Path(str(output_directory) + "/" + desired_file_name+"_part_#.csv")))
+            path = Path(str(chunk_output_directory))
+            os.chdir(path)
+            for chunk in glob.glob("*_part_*"):
+                chunk_path = Path(str(path)+"/"+(chunk))
+                pyramid_cleaner(str(chunk_path))
+            print("Chunks saved to:\n" + str(Path(str(chunk_output_directory) + "/" + desired_file_name+"_part_#.csv")))
             print("\nNOTE: The full merged panel is: " + str(total_file_size) + " Gigabytes.")
             correct = inquirer.confirm("Do you wish to delete the full merged panel?", default=False)
             if correct is True:
                 os.remove(target_file_name)
                 print("Full merged panel deleted.")
+            else:
+                pyramid_cleaner(str(target_file_name))
         else:
-            shutil.rmtree(str(Path(str(output_directory))))
+            #shutil.rmtree(str(Path(str(chunk_output_directory))))
+            pyramid_cleaner(str(target_file_name))
             print(f"{bcolors.WARNING}Desired chunk size larger than output file.{bcolors.END}")
             print("Panel saved to:\n" + str(target_file_name))
 
